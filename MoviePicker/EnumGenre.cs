@@ -19,6 +19,7 @@ namespace MoviePicker
             ChickFlick,
             Comedy,
             Crime,
+            Danish,
             Disaster,
             Documentary,
             Drama,

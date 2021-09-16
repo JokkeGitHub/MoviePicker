@@ -26,8 +26,16 @@ namespace MoviePicker
 
         public MainWindow()
         {
+
             InitializeComponent();
             InitializeT1GenreComboBox();
+
+
+            // Specify the directory you want to manipulate.
+            string folderPathPC = $@"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\MoviePickerFiles";
+            FileFolder.Create(folderPathPC);
+
+
 
             DataContext = this;
 
@@ -157,8 +165,6 @@ namespace MoviePicker
             T2SearchGenreCheckBox.IsChecked = false;
         }
         #endregion
-
-
 
         #endregion
 

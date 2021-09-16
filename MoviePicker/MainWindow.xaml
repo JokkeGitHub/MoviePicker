@@ -91,31 +91,43 @@
 
                     <Button Name="T1RandomMovieButton" Content="Pick random movie"
                         Grid.Column="9" Grid.ColumnSpan="5"
-                        Grid.Row="5" Grid.RowSpan="1">
+                        Grid.Row="3" Grid.RowSpan="1">
                     </Button>
+                    
+                    <Button Name="T1ImagePlaceHolderButton" Content="Image placeholder"
+                        Grid.Column="8" Grid.ColumnSpan="6"
+                        Grid.Row="5" Grid.RowSpan="10">
+                    </Button>
+
+
+                    <Button Name="T1PeopleInvolvedButton" Content="People involved"
+                        Grid.Column="1" Grid.ColumnSpan="6"
+                        Grid.Row="14" Grid.RowSpan="1">
+                    </Button>
+
 
                     <Label Name="T1MovieTitleLabel" Content="Movie title:"
                            Grid.Column="1" Grid.ColumnSpan="4"
-                           Grid.Row="15" Grid.RowSpan="1"
+                           Grid.Row="16" Grid.RowSpan="1"
                            Padding="0,0,0,0">
                     </Label>
 
                     <TextBox Name="T1MovieTitleTextBox" Text=""
                         Grid.Column="1" Grid.ColumnSpan="8"
-                        Grid.Row="16" Grid.RowSpan="1"
+                        Grid.Row="17" Grid.RowSpan="1"
                         BorderThickness="1" BorderBrush="Black"
                              IsReadOnly="True">
                     </TextBox>
 
                     <Label Name="T1MovieYearLabel" Content="Year:"
                            Grid.Column="10" Grid.ColumnSpan="4"
-                           Grid.Row="15" Grid.RowSpan="1"
+                           Grid.Row="16" Grid.RowSpan="1"
                            Padding="0,0,0,0">
                     </Label>
 
                     <TextBox Name="T1MovieYearTextBox" Text=""
                         Grid.Column="10" Grid.ColumnSpan="4"
-                        Grid.Row="16" Grid.RowSpan="1"
+                        Grid.Row="17" Grid.RowSpan="1"
                         BorderThickness="1" BorderBrush="Black"
                              IsReadOnly="True">
                     </TextBox>
@@ -313,6 +325,8 @@
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
+                    
+                    
 
                 </Grid>
             </TabItem>

@@ -21,14 +21,18 @@ namespace MoviePicker
     /// </summary>
     public partial class MainWindow : Window
     {
-        public ObservableCollection<ComboBoxItem> T1GenreComboBoxItems { get; set; }
+        public ObservableCollection<ComboBoxItem> GenreComboBoxItems { get; set; }
+        public ObservableCollection<ComboBoxItem> PeopleComboBoxItems { get; set; }
+
         public ComboBoxItem T1SelectedComboBoxItem { get; set; }
+        public ComboBoxItem T3GenreSelectedComboBoxItem { get; set; }
+        public ComboBoxItem T3PeopleSelectedComboBoxItem { get; set; }
 
         public MainWindow()
         {
 
             InitializeComponent();
-            InitializeT1GenreComboBox();
+            InitializeGenreComboBox();
 
 
             // Specify the directory you want to manipulate.
@@ -47,13 +51,13 @@ namespace MoviePicker
         }
 
         #region Tab1 Movie Picker
-        private void InitializeT1GenreComboBox()
+        private void InitializeGenreComboBox()
         {
-            T1GenreComboBoxItems = new ObservableCollection<ComboBoxItem>();
+            GenreComboBoxItems = new ObservableCollection<ComboBoxItem>();
 
             foreach (EnumGenre.Genre genre in (EnumGenre.Genre[])Enum.GetValues(typeof(EnumGenre.Genre)))
             {
-                T1GenreComboBoxItems.Add(new ComboBoxItem { Content = genre.ToString() });
+                GenreComboBoxItems.Add(new ComboBoxItem { Content = genre.ToString() });
             }
         }
 
@@ -164,9 +168,54 @@ namespace MoviePicker
             T2SearchWriterCheckBox.IsChecked = false;
             T2SearchGenreCheckBox.IsChecked = false;
         }
-        #endregion
 
         #endregion
 
+        #endregion
+
+        #region Tab3 Add Movie
+
+        #region Genre Selection
+        private void T3SelectedGenreComboBox_DropDownClosed(object sender, EventArgs e)
+        {
+            if (T3SelectedGenreComboBox.Text == "")
+            { }
+            else
+            {
+                T3SelectedGenresListBox.Items.Add(T3SelectedGenreComboBox.Text);
+            }
+        }
+        private void T3SelectedGenresListBox_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Delete || e.Key == Key.Back)
+            {
+                T3SelectedGenresListBox.Items.Remove(T3SelectedGenresListBox.SelectedItem);
+                e.Handled = true;
+            }
+        }
+        #endregion
+
+        #region People Selection
+        private void T3SelectedPeopleComboBox_DropDownClosed(object sender, EventArgs e)
+        {
+            if (T3SelectedPeopleComboBox.Text == "")
+            { }
+            else
+            {
+                T3SelectedPeopleComboBox.Items.Add(T3SelectedPeopleComboBox.Text);
+            }
+        }
+        private void T3SelectedPeopleListBox_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Delete || e.Key == Key.Back)
+            {
+                T3SelectedPeopleListBox.Items.Remove(T3SelectedPeopleListBox.SelectedItem);
+                e.Handled = true;
+            }
+        }
+        #endregion
+
+
+        #endregion
     }
 }

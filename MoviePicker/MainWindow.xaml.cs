@@ -69,6 +69,97 @@ namespace MoviePicker
         }
         #endregion
 
+        #region Tab2 Search Movies
+
+        #region Check Boxes
+        // Make an event and a list for these v
+        private void T2SearchGenreCheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            T2SearchGenreCheckBox.IsChecked = true;
+
+            T2SearchTitleCheckBox.IsChecked = false;
+            T2SearchYearCheckBox.IsChecked = false;
+            T2SearchDescriptionCheckBox.IsChecked = false;
+            T2SearchActorCheckBox.IsChecked = false;
+            T2SearchWriterCheckBox.IsChecked = false;
+            T2SearcDirectorCheckBox.IsChecked = false;
+        }
+
+        private void T2SearchTitleCheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            T2SearchTitleCheckBox.IsChecked = true;
+
+            T2SearchGenreCheckBox.IsChecked = false;
+            T2SearchYearCheckBox.IsChecked = false;
+            T2SearchDescriptionCheckBox.IsChecked = false;
+            T2SearchActorCheckBox.IsChecked = false;
+            T2SearchWriterCheckBox.IsChecked = false;
+            T2SearcDirectorCheckBox.IsChecked = false;
+        }
+
+        private void T2SearchYearCheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            T2SearchYearCheckBox.IsChecked = true;
+
+            T2SearchTitleCheckBox.IsChecked = false;
+            T2SearchGenreCheckBox.IsChecked = false;
+            T2SearchDescriptionCheckBox.IsChecked = false;
+            T2SearchActorCheckBox.IsChecked = false;
+            T2SearchWriterCheckBox.IsChecked = false;
+            T2SearcDirectorCheckBox.IsChecked = false;
+        }
+
+        private void T2SearchDescriptionCheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            T2SearchDescriptionCheckBox.IsChecked = true;
+
+            T2SearchTitleCheckBox.IsChecked = false;
+            T2SearchYearCheckBox.IsChecked = false;
+            T2SearchGenreCheckBox.IsChecked = false;
+            T2SearchActorCheckBox.IsChecked = false;
+            T2SearchWriterCheckBox.IsChecked = false;
+            T2SearcDirectorCheckBox.IsChecked = false;
+        }
+
+        private void T2SearchActorCheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            T2SearchActorCheckBox.IsChecked = true;
+
+            T2SearchTitleCheckBox.IsChecked = false;
+            T2SearchYearCheckBox.IsChecked = false;
+            T2SearchDescriptionCheckBox.IsChecked = false;
+            T2SearchGenreCheckBox.IsChecked = false;
+            T2SearchWriterCheckBox.IsChecked = false;
+            T2SearcDirectorCheckBox.IsChecked = false;
+        }
+
+        private void T2SearchWriterCheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            T2SearchWriterCheckBox.IsChecked = true;
+
+            T2SearchTitleCheckBox.IsChecked = false;
+            T2SearchYearCheckBox.IsChecked = false;
+            T2SearchDescriptionCheckBox.IsChecked = false;
+            T2SearchActorCheckBox.IsChecked = false;
+            T2SearchGenreCheckBox.IsChecked = false;
+            T2SearcDirectorCheckBox.IsChecked = false;
+        }
+
+        private void T2SearcDirectorCheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            T2SearcDirectorCheckBox.IsChecked = true;
+
+            T2SearchTitleCheckBox.IsChecked = false;
+            T2SearchYearCheckBox.IsChecked = false;
+            T2SearchDescriptionCheckBox.IsChecked = false;
+            T2SearchActorCheckBox.IsChecked = false;
+            T2SearchWriterCheckBox.IsChecked = false;
+            T2SearchGenreCheckBox.IsChecked = false;
+        }
+        #endregion
+
+
+        #endregion
 
     }
 }

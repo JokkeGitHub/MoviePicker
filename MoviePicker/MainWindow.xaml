@@ -343,10 +343,12 @@
                     <TextBox Name="T3MovieYearTextBox" Text=""
                         Grid.Column="10" Grid.ColumnSpan="4"
                         Grid.Row="2" Grid.RowSpan="1"
-                        BorderThickness="1" BorderBrush="Black">
+                        BorderThickness="1" BorderBrush="Black"
+                             PreviewTextInput="T3MovieYearTextBox_PreviewTextInput"
+                             MaxLength="4">
                     </TextBox>
                     
-                    <Label Name="T3MovieDescriptionLabel" Content="Description:"
+                    <Label Name="T3MovieDescriptionLabel" Content="Input description"
                            Grid.Column="1" Grid.ColumnSpan="4"
                            Grid.Row="3" Grid.RowSpan="1"
                            Padding="0,0,0,0">
@@ -458,21 +460,41 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
 
-                    <Label Name="T4SearchPersonLabel" Content="Input name of a person"
+                    <Label Name="T4NameLabel" Content="Input name of a person"
                            Grid.Column="1" Grid.ColumnSpan="5"
                            Grid.Row="1" Grid.RowSpan="1"
                            Padding="0">
                     </Label>
 
-                    <TextBox Name="T4SearchPersonTextBox" Text=""
-                        Grid.Column="1" Grid.ColumnSpan="8"
+                    <TextBox Name="T4NameTextBox" Text=""
+                        Grid.Column="1" Grid.ColumnSpan="13"
                         Grid.Row="2" Grid.RowSpan="1"
                         BorderThickness="1" BorderBrush="Black">
                     </TextBox>
+                    
+                    <Label Name="T4SelectTitleLabel" Content="Add title"
+                           Grid.Column="1" Grid.ColumnSpan="4"
+                           Grid.Row="4" Grid.RowSpan="1"
+                           Padding="0,0,0,0">
+                    </Label>
 
-                    <Button Name="T4PeopleInvolvedButton" Content="People involved"
+                    <StackPanel Name="T4TitleSelectorStackPanel"
                         Grid.Column="1" Grid.ColumnSpan="6"
-                        Grid.Row="14" Grid.RowSpan="1">
+                        Grid.Row="5" Grid.RowSpan="1">
+                        <ComboBox Name="T4TitleSelectedComboBox"  ItemsSource="{Binding TitleComboBoxItems}" SelectedItem="{Binding T4TitleSelectedComboBoxItem}"
+                                  DropDownClosed="T4SelectedTitleComboBox_DropDownClosed"/>
+                    </StackPanel>
+                    
+                    <TextBox Name="T4SSelectedTitleTextBox" Text=""
+                        Grid.Column="8" Grid.ColumnSpan="6"
+                        Grid.Row="5" Grid.RowSpan="1"
+                        BorderThickness="1" BorderBrush="Black"
+                             IsReadOnly="True">
+                    </TextBox>
+
+                    <Button Name="T4AddPerson" Content="Add person"
+                        Grid.Column="4" Grid.ColumnSpan="7"
+                        Grid.Row="8" Grid.RowSpan="1">
                     </Button>
 
                 </Grid>

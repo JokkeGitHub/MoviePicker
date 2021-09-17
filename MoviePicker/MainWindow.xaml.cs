@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -23,16 +24,19 @@ namespace MoviePicker
     {
         public ObservableCollection<ComboBoxItem> GenreComboBoxItems { get; set; }
         public ObservableCollection<ComboBoxItem> PeopleComboBoxItems { get; set; }
+        public ObservableCollection<ComboBoxItem> TitleComboBoxItems { get; set; }
 
         public ComboBoxItem T1SelectedComboBoxItem { get; set; }
         public ComboBoxItem T3GenreSelectedComboBoxItem { get; set; }
         public ComboBoxItem T3PeopleSelectedComboBoxItem { get; set; }
+        public ComboBoxItem T4TitleSelectedComboBoxItem { get; set; }
 
         public MainWindow()
         {
-
             InitializeComponent();
             InitializeGenreComboBox();
+            //InitializePeopleComboBox();
+            InitializeTitleComboBox();
 
 
             // Specify the directory you want to manipulate.
@@ -50,7 +54,7 @@ namespace MoviePicker
             T1SearchPersonTextBox.Text = pActor.Title.ToString();
         }
 
-        #region Tab1 Movie Picker
+        #region Initialize
         private void InitializeGenreComboBox()
         {
             GenreComboBoxItems = new ObservableCollection<ComboBoxItem>();
@@ -60,7 +64,33 @@ namespace MoviePicker
                 GenreComboBoxItems.Add(new ComboBoxItem { Content = genre.ToString() });
             }
         }
+        /*
+        private void InitializePeopleComboBox()
+        {
+            GenreComboBoxItems = new ObservableCollection<ComboBoxItem>();
 
+            foreach (EnumGenre.Genre genre in (EnumGenre.Genre[])Enum.GetValues(typeof(EnumGenre.Genre)))
+            {
+                GenreComboBoxItems.Add(new ComboBoxItem { Content = genre.ToString() });
+            }
+        }
+        */
+
+        private void InitializeTitleComboBox()
+        {
+            TitleComboBoxItems = new ObservableCollection<ComboBoxItem>();
+
+            foreach (EnumTitle.Title title in (EnumTitle.Title[])Enum.GetValues(typeof(EnumTitle.Title)))
+            {
+                TitleComboBoxItems.Add(new ComboBoxItem { Content = title.ToString() });
+            }
+        }
+
+
+        #endregion
+
+
+        #region Tab1 Movie Picker
         private void T1SelectedGenreComboBox_DropDownClosed(object sender, EventArgs e)
         {
             if (T1SelectedGenreComboBox.Text == "")
@@ -215,7 +245,31 @@ namespace MoviePicker
         }
         #endregion
 
+        private void T3MovieYearTextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex(@"[^0-9]+$");
+            regex.Replace(" ", "");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
 
         #endregion
+
+        #region Tab4 Add Person
+        private void T4SelectedTitleComboBox_DropDownClosed(object sender, EventArgs e)
+        {
+            T4SSelectedTitleTextBox.Clear();
+
+            if (T4TitleSelectedComboBox.Text == "")
+            { }
+            else
+            {
+                T4SSelectedTitleTextBox.Text = T4TitleSelectedComboBox.Text;
+            }
+        }
+
+
+        #endregion
+
     }
 }

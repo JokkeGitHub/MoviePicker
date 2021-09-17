@@ -252,10 +252,10 @@ namespace MoviePicker
             e.Handled = regex.IsMatch(e.Text);
         }
 
-
         #endregion
 
         #region Tab4 Add Person
+        #region ComboBox
         private void T4SelectedTitleComboBox_DropDownClosed(object sender, EventArgs e)
         {
             T4SSelectedTitleTextBox.Clear();
@@ -267,7 +267,18 @@ namespace MoviePicker
                 T4SSelectedTitleTextBox.Text = T4TitleSelectedComboBox.Text;
             }
         }
+        #endregion
 
+        #region Button
+        private void T4AddPerson_Click(object sender, RoutedEventArgs e)
+        {
+            if (T4NameTextBox.Text != "" && T4SSelectedTitleTextBox.Text != "")
+            {
+
+            }
+        }
+
+        #endregion
 
         #endregion
 
